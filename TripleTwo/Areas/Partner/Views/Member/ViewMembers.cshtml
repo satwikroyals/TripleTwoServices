@@ -1,0 +1,524 @@
+﻿
+@{
+    ViewBag.Title = "ViewMembers";
+    Layout = "~/Areas/Partner/Views/Shared/_PartnerLayout.cshtml";
+}
+@using TripleTwo.Code
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-file-text"></i>
+        </div>
+        <div class="header-title">
+            <h1>Database</h1>
+            <small>CRM</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <h4>Recent Deposits</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="row">
+                            @*<div class="col-6 col-md-3 form-group">
+                                    <label for="exampleFormControlSelect1">Service</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Bank of asia</option>
+                                        <option>Brac Bank</option>
+                                        <option>National Bank</option>
+                                        <option>Exim Bank</option>
+                                        <option>datchbangla Bank</option>
+                                        <option>Sonali Bank</option>
+                                    </select>
+                                </div>*@
+                            <div class="col-6 col-md-3 form-group">
+                                <label>Member</label>
+                                <input type="text" id="SearchMemberstr" class="form-control" placeholder="Enter Short description"
+                                       required>
+                            </div>
+                            <div class="col-6 col-md-3 form-group">
+                                <label>Email</label>
+                                <input type="text" id="SearchEmailstr" class="form-control" placeholder="Enter Short description"
+                                       required>
+                            </div>
+                            <div class="col-6 col-md-3 form-group">
+                                <label>Mobile</label>
+                                <input type="text" id="SearchMobilestr" class="form-control" placeholder="Enter Short description"
+                                       required>
+                            </div>
+                            <div class="col-6 col-md-3 form-group">
+                                <label class="control-label">Start Date<span class="required"> *</span></label>
+                                <div class="input-group text-center">
+                                    <input type="text" class="form-control" id="Searchstr"
+                                           placeholder=" Enter date">
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 form-group">
+                                <label class="control-label">End Date<span class="required"> *</span></label>
+                                <div class="input-group text-center">
+                                    <input type="text" class="form-control" id="EndDate"
+                                           placeholder=" Enter date">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row m-0">
+                            <div class="form-group pr-3">
+                                <button type="submit" id="shwbtn" class="btn btn-exp btn-sm">
+                                    Show
+                                </button>
+                            </div>
+                            <div class="form-group pr-3">
+                                <button type="submit" id="shwallbtn" class="btn btn-exp btn-sm">
+                                    Show All
+                                </button>
+                            </div>
+                            <div class="form-group pr-3">
+                                <button type="button" class="btn btn-exp btn-sm" id="showmember" data-toggle="modal"
+                                        data-target="#update">
+                                    <i class="fa fa-pencil"></i>Add Member
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-auto">
+                                Total: <span id="totalrec"></span>
+                            </div>
+                            <div class="col-auto form-group">
+                                <select class="form-control" id="ddlpagesize">
+                                    <option>25</option>
+                                    <option>50</option>
+                                    <option>75</option>
+                                    <option>100</option>
+                                </select>
+                            </div>
+                            <div id="showpageinfo" class="col-auto">
+
+                            </div>
+                            @*<div class="col-auto form-group">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Sort By</option>
+                                        <option>Brac Bank</option>
+                                        <option>National Bank</option>
+                                        <option>Exim Bank</option>
+                                        <option>datchbangla Bank</option>
+                                        <option>Sonali Bank</option>
+                                    </select>
+                                </div>*@
+                            @*<div class="btn-group">
+                                    <button class="btn btn-exp btn-sm" data-toggle="dropdown">
+                                        <i class="fa fa-bars"></i> Export Table Data
+                                    </button>
+                                    <ul class="dropdown-menu exp-drop" role="menu">
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false'});">
+                                                <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});">
+                                                <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON
+                                                (ignoreColumn)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'json',escape:'true'});">
+                                                <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON
+                                                (with Escape)
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'xml',escape:'false'});">
+                                                <img src="assets/dist/img/xml.png" width="24" alt="logo"> XML
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'sql'});">
+                                                <img src="assets/dist/img/sql.png" width="24" alt="logo"> SQL
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'csv',escape:'false'});">
+                                                <img src="assets/dist/img/csv.png" width="24" alt="logo"> CSV
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'txt',escape:'false'});">
+                                                <img src="assets/dist/img/txt.png" width="24" alt="logo"> TXT
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'excel',escape:'false'});">
+                                                <img src="assets/dist/img/xls.png" width="24" alt="logo"> XLS
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'doc',escape:'false'});">
+                                                <img src="assets/dist/img/word.png" width="24" alt="logo"> Word
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'powerpoint',escape:'false'});">
+                                                <img src="assets/dist/img/ppt.png" width="24" alt="logo">
+                                                PowerPoint
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'png',escape:'false'});">
+                                                <img src="assets/dist/img/png.png" width="24" alt="logo"> PNG
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               onclick="$('#dataTableExample1').tableExport({type:'pdf',pdfFontSize:'7',escape:'false'});">
+                                                <img src="assets/dist/img/pdf.png" width="24" alt="logo"> PDF
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>*@
+                        </div>
+                        <div class="table-responsive tblcontent">
+                            <table class="table table-bordered table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Status </th>
+                                        <th>Name </th>
+                                        <th>Email </th>
+                                        <th>Mobile </th>
+                                        <th>Modified</th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbldata">
+                                    @*<td></td>
+                                        <td>Man J</td>
+                                        <td>lisar1912@hotmail.com </td>
+                                        <td>0402279351</td>
+                                        <td>
+                                            <button type="button" class="btn btn-add btn-sm" data-toggle="modal"
+                                                    data-target="#EditMember">
+                                                <i class="fa fa-pencil"></i>
+                                            </button>
+                                        </td>*@
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="px-2 my-2 pull-right">
+                            <ul class="pagination m-0">
+                                <li class="active"><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <input type="hidden" id="CustomerId" name="CustomerId" />
+                <i class="fa fa-plus m-r-5"></i><h3 id="htitle"> </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" id="formc">
+                            <div class="row">
+                                <div class="d-val-summary form-val-summary"></div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">First Name</label>
+                                    <input type="text" name="FirstName" id="FirstName" placeholder="First Name" class="form-control isvalidate" errormsg="Enter Fisrt Name">
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Last Name</label>
+                                    <input type="text" id="txtLastName" placeholder="Last Name" class="form-control isvalidate" errormsg="Enter Last Name">
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-12 form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="txtEmail" placeholder="Email" class="form-control isvalidate" errormsg="Enter Email">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Mobile</label>
+                                    <input type="number" id="txtMobile" placeholder="Mobile" class="form-control isvalidate" errormsg="Enter Mobile">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Pin</label>
+                                    <input type="text" id="txtPin" placeholder="Pin" class="form-control isvalidate" errormsg="Enter Pin">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Post Code</label>
+                                    <input type="text" id="txtPostCode" placeholder="Post Code" class="form-control isvalidate" errormsg="Enter Post Code">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <p>Status</p>
+                                    <select class="form-control" id="ddlstatus">
+                                        <option value="0">Inactive</option>
+                                        <option value="1">Active</option>
+
+                                    </select>
+                                </div>
+                                @*<div class="col-md-12 form-group user-form-group">
+                                        <div class="float-right">
+                                            <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                            <button type="submit" class="btn btn-add btn-sm">Update</button>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnclose" data-dismiss="modal" class="btn btn-danger btn-sm">Cancel</button>
+                <button type="button" id="btnaddupdate" class="btn btn-add btn-sm">Update</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!--<div class="modal fade" id="EditMember" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3><i class="fa fa-plus m-r-5"></i> New Member</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="row">
+                                <p class="col-12">Contact Details</p>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">First Name</label>
+                                    <input type="text" placeholder="First Name" class="form-control">
+                                </div>-->
+                                <!-- Text input-->
+                                <!--<div class="col-md-6 form-group">
+                                    <label class="control-label">Last Name</label>
+                                    <input type="text" placeholder="Last Name" class="form-control">
+                                </div>-->
+                                <!-- Text input-->
+                                <!--<div class="col-md-12 form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Gender</label>
+                                    <input type="text" placeholder="Gender" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Pin</label>
+                                    <input type="text" placeholder="Pin" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Post Code</label>
+                                    <input type="text" placeholder="Post Code" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <p>Date-of-Birth :</p>
+                                    <div class="row m-0">
+                                        <select class="col-6 form-control" id="exampleFormControlSelect1">
+                                            <option>Bank of asia</option>
+                                            <option>Brac Bank</option>
+                                            <option>National Bank</option>
+                                            <option>Exim Bank</option>
+                                            <option>datchbangla Bank</option>
+                                            <option>Sonali Bank</option>
+                                        </select>
+                                        <select class="col-6 form-control" id="exampleFormControlSelect1">
+                                            <option>Bank of asia</option>
+                                            <option>Brac Bank</option>
+                                            <option>National Bank</option>
+                                            <option>Exim Bank</option>
+                                            <option>datchbangla Bank</option>
+                                            <option>Sonali Bank</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p class="col-12">Account Settings</p>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Gender</label>
+                                    <input type="text" placeholder="Gender" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Pin</label>
+                                    <input type="text" placeholder="Pin" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Post Code</label>
+                                    <input type="text" placeholder="Post Code" class="form-control">
+                                </div>
+                                <p>Address Details</p>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Flat / Unit No :</label>
+                                    <input type="text" placeholder="Flat / Unit No :" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Location / Suburb :</label>
+                                    <input type="text" placeholder="Location / Suburb :" class="form-control">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label class="control-label">Geo Address :</label>
+                                    <input type="text" placeholder="Geo Address :" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">City :</label>
+                                    <input type="text" placeholder="City :" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">Postal / Zip Code :</label>
+                                    <input type="text" placeholder="Postal / Zip Code :" class="form-control">
+                                </div>
+                                <div class="col-md-12 form-group user-form-group">
+                                    <div class="float-right">
+                                        <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                        <button type="submit" class="btn btn-add btn-sm"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>-->
+        <!-- /.modal-content -->
+    <!--</div>-->
+    <!-- /.modal-dialog -->
+<!--</div>-->
+<!-- /.content-wrapper -->
+<script src="~/Content/assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
+@{Html.RenderPartial("~/Views/Shared/_ValidationScripts.cshtml");}
+<script src="~/Content/js/partner/Members.js"></script>
+
+<script>
+
+   
+
+
+
+    $(document).ready(function () {
+        getPartnerMemberspage();
+        //Getgroupsddl();
+
+        valcontrols = ['FirstName'];
+        //set validations.
+        setValidations('#formc', valcontrols);
+
+    });
+    //document.getElementById("vieworg").onclick = function () {
+    //    location.href = "ViewMembers";
+    //};
+    document.getElementById("showmember").onclick = function () {
+        $("#htitle").html("New Member");
+        $("#btnaddupdate").text("Add");
+
+    };
+
+    document.getElementById("btnaddupdate").onclick = function () {
+        AddCustomerDetails();
+    };
+
+    $(document).on('click', '#btnEdit', function () {
+
+        $("#htitle").html("Edit Member");
+        $("#btnaddupdate").text("Save");
+        $("#CustomerId").val(parseInt($(this).attr('data-cid')));
+        var cid = parseInt($("#CustomerId").val());
+        GetCustomerDetails(cid);
+    });
+
+    function GetCustomerDetails(cid) {
+        gl.ajaxreqloader(apiurl + "GetCustomerDetailsById", "get", { cid: cid }, function (response) {
+            console.log(response);
+            $("#txtFirstName").val(response.FirstName);
+            $("#txtLastName").val(response.LastName);
+            $("#txtEmail").val(response.Email);
+            $("#txtMobile").val(response.Mobile);
+            $("#txtPin").val(response.pin);
+            $("#txtPostCode").val(response.PostCode);
+            $("#ddlstatus").val(response.Status);
+        });
+
+    }
+
+    function AddCustomerDetails() {
+        var formdata = new FormData($('#formc')[0]);
+
+       
+
+        formdata.delete('data');
+        formdata.delete('ImageFiles');
+        //var errCtrl = $('.d-login_err');
+        //$(errCtrl).html('');
+        //var valSummaryCtrl = $('.d-val-summary');
+        //var btnUpdate = $('#btnaddupdate');
+        //var formId = '#formc';
+        //if (validateFormData(formId, valSummaryCtrl, true)) {
+        //    var valErrs = [];
+        //    if (addValidationErrorsToForm(formId, valSummaryCtrl, true, valErrs)) {
+                var dataParams = {
+                    CustomerId: parseInt($("#CustomerId").val()),
+                    FirstName: $("#txtFirstName").val(),
+                    LastName: $("#txtLastName").val(),
+                    Email: $("#txtEmail").val(),
+                    Mobile: $("#txtMobile").val(),
+                    pin: $("#txtPin").val(),
+                    PostCode: $("#txtPostCode").val(),
+                    Status: $("#ddlstatus").val()
+                }
+        formdata.append("data", JSON.stringify(dataParams));
+        //console.log(formdata);
+        gl.ajaxreqloader(apiurl + "AddUpdateCustomer", "POST", dataParams, function (response) {
+                    //console.log(response);
+            getPartnerMemberspage();
+                });
+
+
+            //}
+       // }
+
+    }
+
+</script>

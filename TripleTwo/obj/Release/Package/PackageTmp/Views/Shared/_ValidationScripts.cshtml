@@ -1,0 +1,647 @@
+﻿@using TripleTwo.Code;
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+@*<script src="~/Content/js/jquery.validate.min.js" asp-append-version="true"></script>*@
+<script>
+
+    /**
+     * Add email regular expression validation.
+    */
+    $.validator.addMethod("regexEmail", function (value, element, param) {
+        return value.match(@Html.Raw('/'+ ValExpressions.Email+'/'));
+    }, '@ValMessages.InvalidEmail');
+
+    $.validator.addMethod("ddlselect2", function (value, element, arg) {
+        return arg !== value;
+    }, "");
+
+    $.validator.addMethod("ddlselect2null", function (value, element, arg) {
+        return value !== null;
+    }, "");
+
+    $.validator.addMethod("ddl", function (value, element, arg) {
+        return arg !== value;
+    }, "");
+
+    /**
+     * Set validation rules.
+    */
+    var validationRules = {
+        EmailId: {
+            required: true,
+            maxlength: '@Constraints.EmailMax',
+            regexEmail: true
+        },
+        RegexEmail: {
+            regexEmail: true
+        },
+        UserName: {
+            required: true
+        },
+        Password: {
+            required: true
+        },
+        ProductName: {
+            required: true,
+            maxlength: '@Constraints.ProductName'
+        },
+        ProductDescription: {
+            required: true,
+            maxlength: '@Constraints.ProductDescription'
+        },
+        ProductConditions: {
+            maxlength: '@Constraints.ProductConditions'
+        },
+        ProductQtyLimit: {
+            required: true,
+            maxlength: '@Constraints.ProductQtyLimit'
+        },
+        ProductPrice: {
+            required: true,
+            maxlength: '@Constraints.Price'
+        },
+        BusinessName: {
+            required: true,
+            maxlength: '@Constraints.BusinessName'
+        },
+        FirstName: {
+            required: true,
+            maxlength: '@Constraints.Name'
+        },
+        LastName: {
+            required: true,
+            maxlength: '@Constraints.Name'
+        },
+        Address: {
+            required: true,
+            maxlength: '@Constraints.Address'
+        },
+        City: {
+            required: true,
+            maxlength: '@Constraints.City'
+        },
+        PostCode: {
+            required: true,
+            maxlength: '@Constraints.PostCode'
+        },
+        ContactName: {
+            required: true,
+            maxlength: '@Constraints.Name'
+        },
+        ContactEmail: {
+            required: true,
+            maxlength: '@Constraints.EmailMax',
+            regexEmail: true
+        },
+        ContactNo: {
+            required: true,
+            maxlength: '@Constraints.Phone'
+        },
+        Phone: {
+            required: true,
+            maxlength: '@Constraints.Phone'
+        },
+        DdlBusinessTypes: {
+            required: true,
+            ddl: '0'
+        },
+        SurveyName: {
+            required: true,
+            maxlength: '@Constraints.SurveyName'
+        },
+        SurveyDescription: {
+            required: true,
+            maxlength: '@Constraints.SurveyDescription'
+        },
+        SurveyConditions: {
+            maxlength: '@Constraints.SurveyConditions'
+        },
+        OutletGameTitle: {
+            required: true,
+            //maxlength: '@Constraints.SurveyConditions'
+        },
+
+    };
+
+    /**
+     * Set validation messages.
+    */
+    var validationMessages = {
+        EmailId: {
+            required: '@ValMessages.EmailReq',
+            maxlength: '@ValMessages.EmailMax'
+        },
+        UserName: {
+            required: '@ValMessages.UserNameReq'
+        },
+        Password: {
+            required: '@ValMessages.PasswordReq'
+        },
+        ProductName: {
+            required: '@ValMessages.ProductNameReq'
+        },
+        ProductDescription: {
+            required: '@ValMessages.ProductDescriptionReq',
+            maxlength: '@ValMessages.ProductDescriptionMax'
+        },
+        ProductConditions: {
+            maxlength: '@ValMessages.ProductConditionsMax'
+        },
+        ProductQtyLimit: {
+            required: '@ValMessages.ProductQtyLimitReq',
+            maxlength: '@ValMessages.ProductQtyLimitMax'
+        },
+        ProductPrice: {
+            required: '@ValMessages.ProductPriceReq',
+            maxlength: '@ValMessages.ProductPriceMax'
+        },
+        BusinessName: {
+            required: '@ValMessages.BusinessNameReq',
+            maxlength: '@ValMessages.BusinessNameMax'
+        },
+        OutletName: {
+            required: '@ValMessages.BusinessNameMax',
+            maxlength: '@ValMessages.BusinessNameMax'
+        },
+        FirstName: {
+            required: '@ValMessages.FirstNameReq',
+            maxlength: '@ValMessages.FirstNameMax'
+        },
+        LastName: {
+            required: '@ValMessages.LastNameReq',
+            maxlength: '@ValMessages.LastNameMax'
+        },
+        Address: {
+            required: '@ValMessages.AddressReq',
+            maxlength: '@ValMessages.AddressMax'
+        },
+        City: {
+            required: '@ValMessages.CityReq',
+            maxlength: '@ValMessages.CityMax'
+        },
+        PostCode: {
+            required: '@ValMessages.PostCodeReq',
+            maxlength: '@ValMessages.PostCodeMax'
+        },
+        ContactName: {
+            required: '@ValMessages.ContactNameReq',
+            maxlength: '@ValMessages.ContactNameMax'
+        },
+        ContactEmail: {
+            required: '@ValMessages.ContactEmailReq',
+            maxlength: '@ValMessages.ContactEmailMax'
+        },
+        ContactNo: {
+            required: '@ValMessages.ContactNoReq',
+            maxlength: '@ValMessages.ContactNoMax'
+        },
+        Phone: {
+            required: '@ValMessages.PhoneReq',
+            maxlength: '@ValMessages.PhoneMax'
+        },
+        OldPassword: {
+            required: '@ValMessages.OldPwdReq',
+            maxlength: '@ValMessages.OldPwdMax',
+        },
+        NewPassword: {
+            required: '@ValMessages.NewPwdReq',
+            maxlength: '@ValMessages.NewPwdMax',
+        },
+        ConfirmNewPassword: {
+            required: '@ValMessages.ConfirmNewPwdReq',
+            maxlength: '@ValMessages.ConfirmNewPwdMax'
+        },
+        DdlBusinessTypes: {
+            required: '@ValMessages.DdlBusinessTypeRequried',
+            ddl: '@ValMessages.DdlBusinessTypeRequried'
+        },
+        SurveyName: {
+            required: '@ValMessages.SurveyNameReq'
+        },
+        SurveyDescription: {
+            required: '@ValMessages.SurveyDescriptionReq',
+            maxlength: '@ValMessages.SurveyDescriptionMax'
+        },
+        SurveyConditions: {
+            maxlength: '@ValMessages.SurveyConditionsMax'
+        },
+         OutletGameTitle: {
+             required: 'Please enter OutletGameTitle',
+            //maxlength: '@Constraints.SurveyConditions'
+        },
+    };
+
+    //Validation errors list object(message,input element).
+    var validerrlist = [];
+
+    /**
+     * Set validation rules and messages to form fields.
+     * @@param formId - formid
+     * @@param valCtrls - validation field names(['emailid','password'])
+     */
+    function setValidations(formId, valCtrls) {
+        var formvalid = $(formId);
+        var valRules = {};
+        var valMessages = {};
+        $.each(valCtrls, function (index, value) {
+            console.log(value.toLowerCase())
+            switch (value.toLowerCase()) {
+                case "emailid":
+                case "email":
+                    valRules[value] = validationRules.EmailId;
+                    valMessages[value] = validationMessages.EmailId;
+                    break;
+                case "username":
+                    valRules[value] = validationRules.UserName;
+                    valMessages[value] = validationMessages.UserName;
+                    break;
+                case "password":
+                case "pwd":
+                    valRules[value] = validationRules.Password;
+                    valMessages[value] = validationMessages.Password;
+                    break;
+                case "itemname":
+                    valRules[value] = validationRules.ProductName;
+                    valMessages[value] = validationMessages.ProductName;
+                    break;
+                case "itemdescription":
+                    valRules[value] = validationRules.ProductDescription;
+                    valMessages[value] = validationMessages.ProductDescription;
+                    break;
+                case "itemconditions":
+                    valRules[value] = validationRules.ProductConditions;
+                    valMessages[value] = validationMessages.ProductConditions;
+                    break;
+                case "maxorderqty":
+                    valRules[value] = validationRules.ProductQtyLimit;
+                    valMessages[value] = validationMessages.ProductQtyLimit;
+                    break;
+                case "itemprice":
+                    valRules[value] = validationRules.ProductPrice;
+                    valMessages[value] = validationMessages.ProductPrice;
+                    break;
+                case "businessname":
+                    valRules[value] = validationRules.BusinessName;
+                    valMessages[value] = validationMessages.BusinessName;
+                    break;
+                case "firstname":
+                    valRules[value] = validationRules.FirstName;
+                    valMessages[value] = validationMessages.FirstName;
+                    break;
+                case "lastname":
+                    valRules[value] = validationRules.LastName;
+                    valMessages[value] = validationMessages.LastName;
+                    break;
+                case "address":
+                    valRules[value] = validationRules.Address;
+                    valMessages[value] = validationMessages.Address;
+                    break;
+                case "city":
+                    valRules[value] = validationRules.City;
+                    valMessages[value] = validationMessages.City;
+                    break;
+                case "postcode":
+                    valRules[value] = validationRules.PostCode;
+                    valMessages[value] = validationMessages.PostCode;
+                    break;
+                case "contactname":
+                    valRules[value] = validationRules.ContactName;
+                    valMessages[value] = validationMessages.ContactName;
+                    break;
+                case "contactemail":
+                    valRules[value] = validationRules.ContactEmail;
+                    valMessages[value] = validationMessages.ContactEmail;
+                    break;
+                case "contactno":
+                    valRules[value] = validationRules.ContactNo;
+                    valMessages[value] = validationMessages.ContactNo;
+                    break;
+                case "phone":
+                    valRules[value] = validationRules.Phone;
+                    valMessages[value] = validationMessages.Phone;
+                    break;
+                case "oldpwd":
+                    valRules[value] = validationRules.Password;
+                    valMessages[value] = validationMessages.OldPassword;
+                    break;
+                case "newpwd":
+                    valRules[value] = validationRules.Password;
+                    valMessages[value] = validationMessages.NewPassword;
+                    break;
+                case "confirmnewpwd":
+                    valRules[value] = validationRules.Password;
+                    valMessages[value] = validationMessages.ConfirmNewPassword;
+                    break;
+                case "ddlitemtypes":
+                    valRules[value] = validationRules.DdlBusinessTypes;
+                    valMessages[value] = validationMessages.DdlBusinessTypes;
+                    break;
+                case "surveyname":
+                    valRules[value] = validationRules.SurveyName;
+                    valMessages[value] = validationMessages.SurveyName;
+                    break;
+                case "surveydescription":
+                    valRules[value] = validationRules.SurveyDescription;
+                    valMessages[value] = validationMessages.SurveyDescription;
+                    break;
+                case "surveyconditions":
+                    valRules[value] = validationRules.SurveyConditions;
+                    valMessages[value] = validationMessages.SurveyConditions;
+                    break;
+                case "outletgametitle":
+                    valRules[value] = validationRules.OutletGameTitle;
+                    valMessages[value] = validationMessages.OutletGameTitle;
+                    break;
+                case "datestart":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter datestart',
+                    };
+                    break;
+                case "dateend":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter dateend',
+                    };
+                    break;
+                case "gamedescription":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter gamedescription',
+                    };
+                    break;
+                case "primaryprizecount":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter PrimaryPrizeCount',
+                    };
+                    break;
+                case "primarywinmessage":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter PrimaryWinMessage',
+                    };
+                    break;
+                case "primarywincoins":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter PrimaryWinCoins',
+                    };
+                    break;
+                case "secondaryprizecount":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter secondaryPrizeCount',
+                    };
+                    break;
+                case "secondarywinmessage":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter secondaryWinMessage',
+                    };
+                    break;
+                case "secondarywincoins":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter secondaryWinCoins',
+                    };
+                    break;
+                case "consolationprizecount":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter consolationPrizeCount',
+                    };
+                    break;
+                case "consolationwinmessage":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter consolationWinMessage',
+                    };
+                    break;
+                case "consolationwincoins":
+                    valRules[value] = {
+                        required: true
+                    };
+                    valMessages[value] = {
+                        required: 'Please enter consolationWinCoins',
+                    };
+                    break;
+            }
+
+        });
+        console.log(valRules);
+        console.log(valMessages);
+        formvalid.validate({
+            ignore: "",  //set hidden fileds validation enable.
+            onfocusout: false,
+            onkeyup: false,
+            onclick: false,
+            focusInvalid: true,
+            rules: valRules,
+            messages: valMessages,
+            errorPlacement: function (error, element) {
+                validerrlist.push({ message: error.html(), element: element[0] });
+            }
+        });
+        //console.log(validerrlist)
+
+    }
+
+    /**
+    * Validate form with error header.
+    * @@param formId - formid
+    * @@param valSummaryctrl - validation summary display control
+    * @@scrollToForm scrollToForm - scroll page to form
+    */
+    function validateFormData(formId, valSummaryctrl, scrollToForm) {
+        //clear validerrlist if any.
+        validerrlist = [];
+        $(valSummaryctrl).empty();
+        alert($(formId).valid())
+        //check form valid.
+        if ($(formId).valid() == false) {
+            var scrollToSummary = $(document).height() > $(window).height();
+            var form = $('form')[0];
+
+            console.log(validerrlist);
+            var settings = $.data(form, 'validator').settings;
+            settings.focusInvalid = false;
+            settings.onfocusout = false;
+            settings.onkeyup = false;
+            settings.onclick = false;
+            var message = "";
+            //set validation display and add event to foucs on input.
+            $(validerrlist).each(function (i, v) {
+                if (i == 0) {
+                    message += "<div class='search-valerr-head'>Errors List</div><ul class='search-valerr-li'>";
+                }
+                message += "<li><label for=" + v.element.id + ">" + v.message + "</label></li>";
+                $('#' + v.element.id).attr('aria-invalid', 'true');
+                if (i == (validerrlist.length - 1)) {
+                    message += "</ul>";
+                }
+            });
+            $(valSummaryctrl).html(message);
+            if (message != '') {
+                $(valSummaryctrl).addClass('alert');
+            }
+            else {
+                $(valSummaryctrl).removeClass('alert');
+            }
+            var valSummaryErrors = $(formId + " .d-val-summary");
+            valSummaryErrors.attr('aria-live', 'assertive');
+            valSummaryErrors.attr('aria-atomic', 'true');
+            $(formId + " .error:first").focus();
+            //scroll to Form
+            if (scrollToForm) {
+                var vsummary = scrollToSummary ? document.getElementById(formId.substring(1)) : document.getElementsByTagName('body');
+                if (vsummary != null) { vsummary.scrollIntoView({ behavior: 'smooth' }); }
+            }
+            return false;
+        }
+        else {
+            $(valSummaryctrl).removeClass('alert');
+            return true;
+        }
+    }
+
+    /**
+     * Validate form.
+     * @@param formId - formid
+     * @@param valSummaryctrl - validation summary display control
+     * @@scrollToForm scrollToForm - scroll page to form
+     */
+    function validateForm(formId, valSummaryctrl, scrollToForm) {
+        //clear validerrlist if any.
+        validerrlist = [];
+        $(valSummaryctrl).empty();
+        //check form valid.
+        if ($(formId).valid() == false) {
+            var scrollToSummary = $(document).height() > $(window).height();
+            var form = $('form')[0];
+            var settings = $.data(form, 'validator').settings;
+            settings.focusInvalid = false;
+            settings.onfocusout = false;
+            settings.onkeyup = false;
+            settings.onclick = false;
+            //set validation display and add event to foucs on input.
+            $(validerrlist).each(function (i, v) {
+                $(valSummaryctrl).append("<li><label for=" + v.element.id + ">" + v.message + "</label></li>");
+                $('#' + v.element.id).attr('aria-invalid', 'true');
+            });
+            var valSummaryErrors = $(formId + " .validation-summary-errors");
+            valSummaryErrors.attr('aria-live', 'assertive');
+            valSummaryErrors.attr('aria-atomic', 'true');
+            $(formId + " .error:first").focus();
+            //scroll to Form
+            if (scrollToForm) {
+                var vsummary = scrollToSummary ? document.getElementById(formId.substring(1)) : document.getElementsByTagName('body');
+                if (vsummary != null) { vsummary.scrollInDDdlSiteRequriediteRequrieddlCountryRequriedDdlCountryRequrieduntryRequriedtoView({ behavior: 'smooth' }); }
+            }
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    /**
+   * Validate form with error header.
+   * @@param formId - formid
+   * @@param valSummaryctrl - validation summary display control
+   * @@scrollToForm scrollToForm - scroll page to form
+   */
+    function addValidationErrorsToForm(formId, valSummaryctrl, scrollToForm, errs, addheader) {
+        addheader = (null == addheader || 'null' == addheader || undefined == addheader || '' == addheader) ? true : addheader;
+        //clear validerrlist if any.
+        validerrlist = errs;
+        $('.error').removeClass("error").removeAttr('aria-invalid');
+        $(valSummaryctrl).empty();
+        //check form valid.
+        if (validerrlist != null && validerrlist != undefined && validerrlist.length > 0) {
+            var scrollToSummary = $(document).height() > $(window).height();
+            var form = $('form')[0];
+            //console.log(form)
+            var settings = $.data(form, 'validator').settings;
+            settings.focusInvalid = false;
+            settings.onfocusout = false;
+            settings.onkeyup = false;
+            settings.onclick = false;
+            var message = "";
+            if ($(valSummaryctrl).html() == '') {
+                if (addheader) {
+                    message += "<div class='search-valerr-head'>Errors List</div><ul class='search-valerr-li'>";
+                }
+                //set validation display and add event to foucs on input.
+                $(validerrlist).each(function (i, v) {
+                    message += "<li><label for=" + v.substring(0, v.indexOf('-')) + ">" + v.substring(v.indexOf('-') + 1) + "</label></li>";
+                    $('#' + v.substring(0, v.indexOf('-'))).addClass('error').attr('aria-invalid', 'true');
+                });
+                $(valSummaryctrl).html(message);
+            }
+            else {
+                //set validation display and add event to foucs on input.
+                $(validerrlist).each(function (i, v) {
+                    message += "<li><label for=" + v.substring(0, v.indexOf('-')) + ">" + v.substring(v.indexOf('-') + 1) + "</label></li>";
+                    $('#' + v.substring(0, v.indexOf('-'))).addClass('error').attr('aria-invalid', 'true');
+                    if (i == (validerrlist.length - 1)) {
+                        message += "</ul>";
+                    }
+                });
+                $('.search-valerr-li').append(message);
+            }
+            if (message != '') {
+                $(valSummaryctrl).addClass('alert');
+            }
+            else {
+                $(valSummaryctrl).removeClass('alert');
+            }
+            var valSummaryErrors = $(formId + " .d-val-summary");
+            valSummaryErrors.attr('aria-live', 'assertive');
+            valSummaryErrors.attr('aria-atomic', 'true');
+            $(formId + " .error:first").focus();
+
+            //scroll to Form
+            if (scrollToForm) {
+                var vsummary = scrollToSummary ? document.getElementById(formId.substring(1)) : document.getElementsByTagName('body');
+                if (vsummary != null) { vsummary.scrollIntoView({ behavior: 'smooth' }); }
+            }
+            return false;
+        }
+        else {
+            $(valSummaryctrl).removeClass('alert');
+            return true;
+        }
+    }
+
+    function ClearValidationSummary(formId, valSummaryctrl) {
+        $(valSummaryctrl).empty().removeAttr('aria-live').removeAttr('aria-atomic');
+        $('.error').removeClass("error").removeAttr('aria-invalid');
+        $(valSummaryctrl).removeClass('alert');
+    }
+
+</script>
+
+

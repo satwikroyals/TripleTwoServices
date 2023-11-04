@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TripleTwoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Name="BusinessId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessName" Type="nvarchar" MaxLength="150" />
+    <Property Name="BusinessTypeId" Type="int" />
+    <Property Name="BusinessLogo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactFirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactMobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="500" />
+    <Property Name="Location" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="OtherInfo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ABN" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebSiteUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BusinessType">
+    <Key>
+      <PropertyRef Name="BusinessTypeId" />
+    </Key>
+    <Property Name="BusinessTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessType" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CartProducts">
+    <Key>
+      <PropertyRef Name="CartProductID" />
+    </Key>
+    <Property Name="CartProductID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CartID" Type="bigint" />
+    <Property Name="ProductID" Type="bigint" />
+    <Property Name="CustomerID" Type="bigint" />
+    <Property Name="Qty" Type="bigint" />
+    <Property Name="ProductAddedDate" Type="datetime" />
+    <Property Name="ProductModifiedDate" Type="datetime" />
+    <Property Name="ProductPrice" Type="money" />
+  </EntityType>
+  <EntityType Name="CommunicationType">
+    <Key>
+      <PropertyRef Name="CommunicationTypeId" />
+    </Key>
+    <Property Name="CommunicationTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommunicationType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerDevices">
+    <Key>
+      <PropertyRef Name="CAppDeviceId" />
+    </Key>
+    <Property Name="CAppDeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceId" Type="nvarchar(max)" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DeviceType" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerFeedBack">
+    <Key>
+      <PropertyRef Name="FeedBackId" />
+    </Key>
+    <Property Name="FeedBackId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="bigint" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="Message" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerFriends">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="bigint" Nullable="false" />
+    <Property Name="FriendCustomerId" Type="bigint" Nullable="false" />
+    <Property Name="AddedDate" Type="date" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerMessageReply">
+    <Key>
+      <PropertyRef Name="MessageReplyId" />
+    </Key>
+    <Property Name="MessageReplyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageId" Type="bigint" />
+    <Property Name="CustomerId" Type="bigint" />
+    <Property Name="ReplyMessage" Type="nvarchar(max)" />
+    <Property Name="ReplyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerMessages">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="bigint" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="MessageImage" Type="nvarchar" MaxLength="200" />
+    <Property Name="PostedDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerMoods">
+    <Key>
+      <PropertyRef Name="CustomerMoodId" />
+    </Key>
+    <Property Name="CustomerMoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="MoodId" Type="int" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Location" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerNominees">
+    <Key>
+      <PropertyRef Name="CustomerNomineeId" />
+    </Key>
+    <Property Name="CustomerNomineeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="NomineeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NomineeMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsProfessional" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="OrganisationTypeId" Type="int" />
+    <Property Name="OrganisationGroupID" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="30" />
+    <Property Name="BirthMonth" Type="int" />
+    <Property Name="BirthYear" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="30" />
+    <Property Name="Pin" Type="nvarchar" MaxLength="10" />
+    <Property Name="ProfilePic" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="30" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="30" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="RefMemberId" Type="int" />
+    <Property Name="IsEmailVerified" Type="int" />
+    <Property Name="AgeGroupId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ShowMood" Type="bit" />
+    <Property Name="ShowProfileToAll" Type="bit" />
+    <Property Name="ShowProfileToFriends" Type="bit" />
+    <Property Name="DoNotShowProfile" Type="bit" />
+  </EntityType>
+  <EntityType Name="EventMedia">
+    <Key>
+      <PropertyRef Name="EventMediaId" />
+    </Key>
+    <Property Name="EventMediaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="MediaType" Type="int" />
+    <Property Name="Media" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganisationTypeId" Type="bigint" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="Video" Type="nvarchar" MaxLength="500" />
+    <Property Name="Location" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EventsEnquiry">
+    <Key>
+      <PropertyRef Name="EnquiryId" />
+    </Key>
+    <Property Name="EnquiryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="CustomerId" Type="bigint" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="EnquiryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Moods">
+    <Key>
+      <PropertyRef Name="MoodId" />
+    </Key>
+    <Property Name="MoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="30" />
+    <Property Name="IconText" Type="nvarchar" MaxLength="50" />
+    <Property Name="ColorCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrganisationGroups">
+    <Key>
+      <PropertyRef Name="OrganisationGroupID" />
+    </Key>
+    <Property Name="OrganisationGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganisationTypeID" Type="int" />
+    <Property Name="GroupTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="OrganisationType">
+    <Key>
+      <PropertyRef Name="OrganisationTypeId" />
+    </Key>
+    <Property Name="OrganisationTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="PartnerId" />
+    </Key>
+    <Property Name="PartnerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgId" Type="bigint" />
+    <Property Name="PartnerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="bigint" />
+    <Property Name="City" Type="nvarchar" MaxLength="200" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="PartnerTypeId" Type="int" />
+    <Property Name="LiveStreaming" Type="nvarchar" MaxLength="500" />
+    <Property Name="Mission" Type="nvarchar" MaxLength="500" />
+    <Property Name="Website" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductCart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="bigint" Nullable="false" />
+    <Property Name="TotalProducts" Type="bigint" Nullable="false" />
+    <Property Name="TotalCartQty" Type="bigint" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalPrice" Type="money" />
+  </EntityType>
+  <EntityType Name="ProductImages">
+    <Key>
+      <PropertyRef Name="ProductImageId" />
+    </Key>
+    <Property Name="ProductImageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Image" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="NormalPrice" Type="money" Nullable="false" />
+    <Property Name="OfferPrice" Type="money" Nullable="false" />
+    <Property Name="ProductInfo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Conditions" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="SponsorId" />
+    </Key>
+    <Property Name="SponsorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SponsorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="SponsorImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactFirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactMobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="500" />
+    <Property Name="Location" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="OtherInfo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ABN" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebSiteUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="SupportId" />
+    </Key>
+    <Property Name="SupportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SupportEmergency">
+    <Key>
+      <PropertyRef Name="EmergencyId" />
+    </Key>
+    <Property Name="EmergencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmergencyNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmergencyEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Supporter">
+    <Key>
+      <PropertyRef Name="SupporterId" />
+    </Key>
+    <Property Name="SupporterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupporterName" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupporterImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactFirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactMobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="500" />
+    <Property Name="Location" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="OtherInfo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ABN" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebSiteUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <Function Name="AddBusiness" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessId" Type="bigint" Mode="In" />
+    <Parameter Name="BusinessName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessTypeId" Type="bigint" Mode="In" />
+    <Parameter Name="BusinessLogo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactFirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactLastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactMobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="Location" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="OtherInfo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ABN" Type="nvarchar" Mode="In" />
+    <Parameter Name="WebSiteUrl" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddCustomerNominees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NomineeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="NomineeMobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventId" Type="bigint" Mode="In" />
+    <Parameter Name="OrganisationTypeId" Type="bigint" Mode="In" />
+    <Parameter Name="PartnerId" Type="bigint" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Location" Type="nvarchar" Mode="In" />
+    <Parameter Name="Latitude" Type="decimal" Mode="In" />
+    <Parameter Name="Longitude" Type="decimal" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ContactPerson" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="EventTypeId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateId" Type="int" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Postcode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddEventMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventId" Type="int" Mode="In" />
+    <Parameter Name="MediaType" Type="int" Mode="In" />
+    <Parameter Name="Media" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddRemoveCartProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartProductID" Type="bigint" Mode="In" />
+    <Parameter Name="CartID" Type="bigint" Mode="In" />
+    <Parameter Name="ProductID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+    <Parameter Name="Qty" Type="int" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddRemoveCustomerFriend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="FriendCustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddUpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pin" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddUpdateCustomerProSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="ShowMood" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToAll" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToFriends" Type="bit" Mode="In" />
+    <Parameter Name="DoNotShowProfile" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AdminGetCustomerMoods" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="Searchstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="AdminGetCustomerNominees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="Searchstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="AdminGetEventEnquiries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="Searchstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="EnquiryId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="CheckPartnerLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CreateOrderByCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="CustomerLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pin" Type="nvarchar" Mode="In" />
+    <Parameter Name="DeviceId" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="App" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllCustomersForFriends" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAppEventsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="str" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBusinessDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetBusinessList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="str" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="BusinessId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerFriends" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="SearchName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerMood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerNominees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerProductCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerProfileSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="ShowMood" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToAll" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToFriends" Type="bit" Mode="In" />
+    <Parameter Name="DoNotShowProfile" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="GetCustomersList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="SearchMemberstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchEmailstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchMobilestr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetEventDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetEventMediaById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventID" Type="bigint" Mode="In" />
+    <Parameter Name="Searchstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEventsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="SearchMemberstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchEmailstr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchMobilestr" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOrganisationGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationTypeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrganisationTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationTypeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetPaggingData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="Query" Type="nvarchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="GetProductDetailById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetProductImagesById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchStr" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageIndex" Type="bigint" Mode="In" />
+    <Parameter Name="PageSize" Type="bigint" Mode="In" />
+    <Parameter Name="ProductId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetSponsorDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SponsorId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetSponsorList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="str" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="SponsorId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetSupportEmergency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmergencyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSupporterDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SupporterId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetSupporterList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="str" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortBy" Type="int" Mode="In" />
+    <Parameter Name="SupporterId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="InsertCustomerFeedBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="Subject" Type="nvarchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="InsertCustomerSupport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="Subject" Type="nvarchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="InsertEventEnquiry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventId" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="RegisterCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="OrganisationTypeId" Type="int" Mode="In" />
+    <Parameter Name="OrganisationGroupId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pin" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RemoveProductCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartID" Type="bigint" Mode="In" />
+    <Parameter Name="OutletID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SetCustomerMood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="MoodId" Type="int" Mode="In" />
+    <Parameter Name="Latitude" Type="decimal" Mode="In" />
+    <Parameter Name="Longitude" Type="decimal" Mode="In" />
+    <Parameter Name="Location" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="String" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Delimiter" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="items" Type="nvarchar(max)" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="OrganisationTypeId" Type="bigint" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="DOB" Type="nvarchar" Mode="In" />
+    <Parameter Name="BirthMonth" Type="int" Mode="In" />
+    <Parameter Name="BirthYear" Type="int" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pin" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProfilePic" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateCustomerProfileSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="bigint" Mode="In" />
+    <Parameter Name="ShowMood" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToAll" Type="bit" Mode="In" />
+    <Parameter Name="ShowProfileToFriends" Type="bit" Mode="In" />
+    <Parameter Name="DoNotShowProfile" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="USP_GetPaggingData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="Query" Type="nvarchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="VerifyCustomerMobile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="TripleTwoModelStoreContainer">
+    <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessType" EntityType="Self.BusinessType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartProducts" EntityType="Self.CartProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommunicationType" EntityType="Self.CommunicationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerDevices" EntityType="Self.CustomerDevices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerFeedBack" EntityType="Self.CustomerFeedBack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerFriends" EntityType="Self.CustomerFriends" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerMessageReply" EntityType="Self.CustomerMessageReply" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerMessages" EntityType="Self.CustomerMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerMoods" EntityType="Self.CustomerMoods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerNominees" EntityType="Self.CustomerNominees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventMedia" EntityType="Self.EventMedia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventsEnquiry" EntityType="Self.EventsEnquiry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Moods" EntityType="Self.Moods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrganisationGroups" EntityType="Self.OrganisationGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrganisationType" EntityType="Self.OrganisationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCart" EntityType="Self.ProductCart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupportEmergency" EntityType="Self.SupportEmergency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supporter" EntityType="Self.Supporter" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

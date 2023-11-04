@@ -1,0 +1,26 @@
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.BAL.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.BAL.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.DAL.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\Dapper.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.DAL.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.AssemblyReference.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.CoreCompileInputs.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.CopyComplete
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.AssemblyReference.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.CoreCompileInputs.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.BAL.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.BAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.DAL.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\Dapper.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\DbFactory.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\MySql.Data.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.DAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.BAL\obj\Debug\TripleTwo.BAL.csproj.CopyComplete

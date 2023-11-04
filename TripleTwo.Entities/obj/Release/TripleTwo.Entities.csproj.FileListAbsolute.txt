@@ -1,0 +1,12 @@
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Release\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Release\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.csproj.AssemblyReference.cache
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Release\TripleTwo.Entities.dll
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Release\TripleTwo.Entities.pdb
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.csproj.AssemblyReference.cache
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.dll
+D:\Projects\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Release\TripleTwo.Entities.pdb

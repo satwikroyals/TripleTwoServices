@@ -1,0 +1,12 @@
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.csproj.AssemblyReference.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.Entities\obj\Debug\TripleTwo.Entities.csproj.AssemblyReference.cache

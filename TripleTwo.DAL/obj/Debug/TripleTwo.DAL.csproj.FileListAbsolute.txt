@@ -1,0 +1,22 @@
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.DAL.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.DAL.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\bin\Debug\Dapper.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.AssemblyReference.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.CopyComplete
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.dll
+C:\Users\Jahnavi Reddy\source\repos\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.AssemblyReference.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.DAL.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.DAL.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\Dapper.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\DbFactory.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.Entities.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\MySql.Data.dll
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\bin\Debug\TripleTwo.Entities.pdb
+C:\Users\Bolle\Documents\work\charles\TripleTwo\TripleTwo\TripleTwo.DAL\obj\Debug\TripleTwo.DAL.csproj.CopyComplete

@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripleTwoModelStoreContainer" CdmEntityContainer="TripleTwoEntities">
+    <EntitySetMapping Name="Businesses">
+      <EntityTypeMapping TypeName="TripleTwoModel.Business">
+        <MappingFragment StoreEntitySet="Business">
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+          <ScalarProperty Name="BusinessLogo" ColumnName="BusinessLogo" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessTypes">
+      <EntityTypeMapping TypeName="TripleTwoModel.BusinessType">
+        <MappingFragment StoreEntitySet="BusinessType">
+          <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+          <ScalarProperty Name="BusinessType1" ColumnName="BusinessType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartProducts">
+      <EntityTypeMapping TypeName="TripleTwoModel.CartProduct">
+        <MappingFragment StoreEntitySet="CartProducts">
+          <ScalarProperty Name="CartProductID" ColumnName="CartProductID" />
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ProductAddedDate" ColumnName="ProductAddedDate" />
+          <ScalarProperty Name="ProductModifiedDate" ColumnName="ProductModifiedDate" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommunicationTypes">
+      <EntityTypeMapping TypeName="TripleTwoModel.CommunicationType">
+        <MappingFragment StoreEntitySet="CommunicationType">
+          <ScalarProperty Name="CommunicationTypeId" ColumnName="CommunicationTypeId" />
+          <ScalarProperty Name="CommunicationType1" ColumnName="CommunicationType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="TripleTwoModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerDevices">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerDevice">
+        <MappingFragment StoreEntitySet="CustomerDevices">
+          <ScalarProperty Name="CAppDeviceId" ColumnName="CAppDeviceId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerFeedBacks">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerFeedBack">
+        <MappingFragment StoreEntitySet="CustomerFeedBack">
+          <ScalarProperty Name="FeedBackId" ColumnName="FeedBackId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerFriends">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerFriend">
+        <MappingFragment StoreEntitySet="CustomerFriends">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FriendCustomerId" ColumnName="FriendCustomerId" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerMessageReplies">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerMessageReply">
+        <MappingFragment StoreEntitySet="CustomerMessageReply">
+          <ScalarProperty Name="MessageReplyId" ColumnName="MessageReplyId" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ReplyMessage" ColumnName="ReplyMessage" />
+          <ScalarProperty Name="ReplyDate" ColumnName="ReplyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerMessages">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerMessage">
+        <MappingFragment StoreEntitySet="CustomerMessages">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="MessageImage" ColumnName="MessageImage" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerMoods">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerMood">
+        <MappingFragment StoreEntitySet="CustomerMoods">
+          <ScalarProperty Name="CustomerMoodId" ColumnName="CustomerMoodId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="MoodId" ColumnName="MoodId" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerNominees">
+      <EntityTypeMapping TypeName="TripleTwoModel.CustomerNominee">
+        <MappingFragment StoreEntitySet="CustomerNominees">
+          <ScalarProperty Name="CustomerNomineeId" ColumnName="CustomerNomineeId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="NomineeName" ColumnName="NomineeName" />
+          <ScalarProperty Name="NomineeMobile" ColumnName="NomineeMobile" />
+          <ScalarProperty Name="IsProfessional" ColumnName="IsProfessional" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TripleTwoModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="RefMemberId" ColumnName="RefMemberId" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShowMood" ColumnName="ShowMood" />
+          <ScalarProperty Name="ShowProfileToAll" ColumnName="ShowProfileToAll" />
+          <ScalarProperty Name="ShowProfileToFriends" ColumnName="ShowProfileToFriends" />
+          <ScalarProperty Name="DoNotShowProfile" ColumnName="DoNotShowProfile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventMedias">
+      <EntityTypeMapping TypeName="TripleTwoModel.EventMedia">
+        <MappingFragment StoreEntitySet="EventMedia">
+          <ScalarProperty Name="EventMediaId" ColumnName="EventMediaId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="TripleTwoModel.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventsEnquiries">
+      <EntityTypeMapping TypeName="TripleTwoModel.EventsEnquiry">
+        <MappingFragment StoreEntitySet="EventsEnquiry">
+          <ScalarProperty Name="EnquiryId" ColumnName="EnquiryId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="EnquiryDate" ColumnName="EnquiryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moods">
+      <EntityTypeMapping TypeName="TripleTwoModel.Mood">
+        <MappingFragment StoreEntitySet="Moods">
+          <ScalarProperty Name="MoodId" ColumnName="MoodId" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="IconText" ColumnName="IconText" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganisationGroups">
+      <EntityTypeMapping TypeName="TripleTwoModel.OrganisationGroup">
+        <MappingFragment StoreEntitySet="OrganisationGroups">
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="OrganisationTypeID" ColumnName="OrganisationTypeID" />
+          <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganisationTypes">
+      <EntityTypeMapping TypeName="TripleTwoModel.OrganisationType">
+        <MappingFragment StoreEntitySet="OrganisationType">
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="TripleTwoModel.Partner">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="PartnerTypeId" ColumnName="PartnerTypeId" />
+          <ScalarProperty Name="LiveStreaming" ColumnName="LiveStreaming" />
+          <ScalarProperty Name="Mission" ColumnName="Mission" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCarts">
+      <EntityTypeMapping TypeName="TripleTwoModel.ProductCart">
+        <MappingFragment StoreEntitySet="ProductCart">
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TotalProducts" ColumnName="TotalProducts" />
+          <ScalarProperty Name="TotalCartQty" ColumnName="TotalCartQty" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImages">
+      <EntityTypeMapping TypeName="TripleTwoModel.ProductImage">
+        <MappingFragment StoreEntitySet="ProductImages">
+          <ScalarProperty Name="ProductImageId" ColumnName="ProductImageId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="TripleTwoModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+          <ScalarProperty Name="NormalPrice" ColumnName="NormalPrice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="ProductInfo" ColumnName="ProductInfo" />
+          <ScalarProperty Name="Conditions" ColumnName="Conditions" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sponsors">
+      <EntityTypeMapping TypeName="TripleTwoModel.Sponsor">
+        <MappingFragment StoreEntitySet="Sponsor">
+          <ScalarProperty Name="SponsorId" ColumnName="SponsorId" />
+          <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
+          <ScalarProperty Name="SponsorImage" ColumnName="SponsorImage" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supports">
+      <EntityTypeMapping TypeName="TripleTwoModel.Support">
+        <MappingFragment StoreEntitySet="Support">
+          <ScalarProperty Name="SupportId" ColumnName="SupportId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupportEmergencies">
+      <EntityTypeMapping TypeName="TripleTwoModel.SupportEmergency">
+        <MappingFragment StoreEntitySet="SupportEmergency">
+          <ScalarProperty Name="EmergencyId" ColumnName="EmergencyId" />
+          <ScalarProperty Name="EmergencyNumber" ColumnName="EmergencyNumber" />
+          <ScalarProperty Name="EmergencyEmail" ColumnName="EmergencyEmail" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supporters">
+      <EntityTypeMapping TypeName="TripleTwoModel.Supporter">
+        <MappingFragment StoreEntitySet="Supporter">
+          <ScalarProperty Name="SupporterId" ColumnName="SupporterId" />
+          <ScalarProperty Name="SupporterName" ColumnName="SupporterName" />
+          <ScalarProperty Name="SupporterImage" ColumnName="SupporterImage" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="TripleTwoModel.Store.Split" FunctionImportName="Split">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.Split_Result">
+          <ScalarProperty Name="items" ColumnName="items" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddBusiness" FunctionName="TripleTwoModel.Store.AddBusiness">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddBusiness_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddCustomerNominees" FunctionName="TripleTwoModel.Store.AddCustomerNominees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddCustomerNominees_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddEvent" FunctionName="TripleTwoModel.Store.AddEvent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddEvent_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddEventMedia" FunctionName="TripleTwoModel.Store.AddEventMedia" />
+    <FunctionImportMapping FunctionImportName="AddRemoveCartProducts" FunctionName="TripleTwoModel.Store.AddRemoveCartProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddRemoveCartProducts_Result">
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddRemoveCustomerFriend" FunctionName="TripleTwoModel.Store.AddRemoveCustomerFriend">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddRemoveCustomerFriend_Result">
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddUpdateCustomer" FunctionName="TripleTwoModel.Store.AddUpdateCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.AddUpdateCustomer_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddUpdateCustomerProSettings" FunctionName="TripleTwoModel.Store.AddUpdateCustomerProSettings" />
+    <FunctionImportMapping FunctionImportName="AdminGetCustomerMoods" FunctionName="TripleTwoModel.Store.AdminGetCustomerMoods" />
+    <FunctionImportMapping FunctionImportName="AdminGetCustomerNominees" FunctionName="TripleTwoModel.Store.AdminGetCustomerNominees" />
+    <FunctionImportMapping FunctionImportName="AdminGetEventEnquiries" FunctionName="TripleTwoModel.Store.AdminGetEventEnquiries" />
+    <FunctionImportMapping FunctionImportName="CheckPartnerLogin" FunctionName="TripleTwoModel.Store.CheckPartnerLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.CheckPartnerLogin_Result">
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="PartnerTypeId" ColumnName="PartnerTypeId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="LiveStreaming" ColumnName="LiveStreaming" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CreateOrderByCart" FunctionName="TripleTwoModel.Store.CreateOrderByCart" />
+    <FunctionImportMapping FunctionImportName="CustomerLogin" FunctionName="TripleTwoModel.Store.CustomerLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.CustomerLogin_Result">
+          <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCustomers" FunctionName="TripleTwoModel.Store.GetAllCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetAllCustomers_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="RefMemberId" ColumnName="RefMemberId" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShowMood" ColumnName="ShowMood" />
+          <ScalarProperty Name="ShowProfileToAll" ColumnName="ShowProfileToAll" />
+          <ScalarProperty Name="ShowProfileToFriends" ColumnName="ShowProfileToFriends" />
+          <ScalarProperty Name="DoNotShowProfile" ColumnName="DoNotShowProfile" />
+          <ScalarProperty Name="NomineeCount" ColumnName="NomineeCount" />
+          <ScalarProperty Name="MoodId" ColumnName="MoodId" />
+          <ScalarProperty Name="OrgGroupName" ColumnName="OrgGroupName" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCustomersForFriends" FunctionName="TripleTwoModel.Store.GetAllCustomersForFriends">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetAllCustomersForFriends_Result">
+          <ScalarProperty Name="IsFriend" ColumnName="IsFriend" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="RefMemberId" ColumnName="RefMemberId" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShowMood" ColumnName="ShowMood" />
+          <ScalarProperty Name="ShowProfileToAll" ColumnName="ShowProfileToAll" />
+          <ScalarProperty Name="ShowProfileToFriends" ColumnName="ShowProfileToFriends" />
+          <ScalarProperty Name="DoNotShowProfile" ColumnName="DoNotShowProfile" />
+          <ScalarProperty Name="CustomerId1" ColumnName="CustomerId1" />
+          <ScalarProperty Name="Email1" ColumnName="Email1" />
+          <ScalarProperty Name="Mobile1" ColumnName="Mobile1" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="CustomerImage" ColumnName="CustomerImage" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="MoodId" ColumnName="MoodId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAppEventsList" FunctionName="TripleTwoModel.Store.GetAppEventsList" />
+    <FunctionImportMapping FunctionImportName="GetBusinessDetailsById" FunctionName="TripleTwoModel.Store.GetBusinessDetailsById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetBusinessDetailsById_Result">
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+          <ScalarProperty Name="BusinessLogo" ColumnName="BusinessLogo" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBusinessList" FunctionName="TripleTwoModel.Store.GetBusinessList" />
+    <FunctionImportMapping FunctionImportName="GetCountries" FunctionName="TripleTwoModel.Store.GetCountries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetCountries_Result">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerDetails" FunctionName="TripleTwoModel.Store.GetCustomerDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetCustomerDetails_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="RefMemberId" ColumnName="RefMemberId" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShowMood" ColumnName="ShowMood" />
+          <ScalarProperty Name="ShowProfileToAll" ColumnName="ShowProfileToAll" />
+          <ScalarProperty Name="ShowProfileToFriends" ColumnName="ShowProfileToFriends" />
+          <ScalarProperty Name="DoNotShowProfile" ColumnName="DoNotShowProfile" />
+          <ScalarProperty Name="FirstName1" ColumnName="FirstName1" />
+          <ScalarProperty Name="LastName1" ColumnName="LastName1" />
+          <ScalarProperty Name="ProfilePic1" ColumnName="ProfilePic1" />
+          <ScalarProperty Name="City1" ColumnName="City1" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerFriends" FunctionName="TripleTwoModel.Store.GetCustomerFriends" />
+    <FunctionImportMapping FunctionImportName="GetCustomerMood" FunctionName="TripleTwoModel.Store.GetCustomerMood">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetCustomerMood_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="RefMemberId" ColumnName="RefMemberId" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShowMood" ColumnName="ShowMood" />
+          <ScalarProperty Name="ShowProfileToAll" ColumnName="ShowProfileToAll" />
+          <ScalarProperty Name="ShowProfileToFriends" ColumnName="ShowProfileToFriends" />
+          <ScalarProperty Name="DoNotShowProfile" ColumnName="DoNotShowProfile" />
+          <ScalarProperty Name="moodid" ColumnName="moodid" />
+          <ScalarProperty Name="Latitude1" ColumnName="Latitude1" />
+          <ScalarProperty Name="Longitude1" ColumnName="Longitude1" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="customerid1" ColumnName="customerid1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerNominees" FunctionName="TripleTwoModel.Store.GetCustomerNominees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetCustomerNominees_Result">
+          <ScalarProperty Name="CustomerNomineeId" ColumnName="CustomerNomineeId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="NomineeName" ColumnName="NomineeName" />
+          <ScalarProperty Name="NomineeMobile" ColumnName="NomineeMobile" />
+          <ScalarProperty Name="IsProfessional" ColumnName="IsProfessional" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerProductCart" FunctionName="TripleTwoModel.Store.GetCustomerProductCart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetCustomerProductCart_Result">
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TotalProducts" ColumnName="TotalProducts" />
+          <ScalarProperty Name="TotalCartQty" ColumnName="TotalCartQty" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerProfileSettings" FunctionName="TripleTwoModel.Store.GetCustomerProfileSettings" />
+    <FunctionImportMapping FunctionImportName="GetCustomersList" FunctionName="TripleTwoModel.Store.GetCustomersList" />
+    <FunctionImportMapping FunctionImportName="GetEventDetails" FunctionName="TripleTwoModel.Store.GetEventDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetEventDetails_Result">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEventMediaById" FunctionName="TripleTwoModel.Store.GetEventMediaById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetEventMediaById_Result">
+          <ScalarProperty Name="EventMediaId" ColumnName="EventMediaId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEvents" FunctionName="TripleTwoModel.Store.GetEvents" />
+    <FunctionImportMapping FunctionImportName="GetEventsList" FunctionName="TripleTwoModel.Store.GetEventsList" />
+    <FunctionImportMapping FunctionImportName="GetOrganisationGroups" FunctionName="TripleTwoModel.Store.GetOrganisationGroups">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetOrganisationGroups_Result">
+          <ScalarProperty Name="OrganisationGroupID" ColumnName="OrganisationGroupID" />
+          <ScalarProperty Name="OrganisationTypeID" ColumnName="OrganisationTypeID" />
+          <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrganisationTypes" FunctionName="TripleTwoModel.Store.GetOrganisationTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetOrganisationTypes_Result">
+          <ScalarProperty Name="OrganisationTypeId" ColumnName="OrganisationTypeId" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaggingData" FunctionName="TripleTwoModel.Store.GetPaggingData" />
+    <FunctionImportMapping FunctionImportName="GetProductDetailById" FunctionName="TripleTwoModel.Store.GetProductDetailById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetProductDetailById_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+          <ScalarProperty Name="NormalPrice" ColumnName="NormalPrice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="ProductInfo" ColumnName="ProductInfo" />
+          <ScalarProperty Name="Conditions" ColumnName="Conditions" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductImagesById" FunctionName="TripleTwoModel.Store.GetProductImagesById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetProductImagesById_Result">
+          <ScalarProperty Name="ProductImageId" ColumnName="ProductImageId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProducts" FunctionName="TripleTwoModel.Store.GetProducts" />
+    <FunctionImportMapping FunctionImportName="GetSponsorDetailsById" FunctionName="TripleTwoModel.Store.GetSponsorDetailsById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetSponsorDetailsById_Result">
+          <ScalarProperty Name="SponsorId" ColumnName="SponsorId" />
+          <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
+          <ScalarProperty Name="SponsorImage" ColumnName="SponsorImage" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSponsorList" FunctionName="TripleTwoModel.Store.GetSponsorList" />
+    <FunctionImportMapping FunctionImportName="GetSupportEmergency" FunctionName="TripleTwoModel.Store.GetSupportEmergency">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetSupportEmergency_Result">
+          <ScalarProperty Name="EmergencyId" ColumnName="EmergencyId" />
+          <ScalarProperty Name="EmergencyNumber" ColumnName="EmergencyNumber" />
+          <ScalarProperty Name="EmergencyEmail" ColumnName="EmergencyEmail" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSupporterDetailsById" FunctionName="TripleTwoModel.Store.GetSupporterDetailsById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.GetSupporterDetailsById_Result">
+          <ScalarProperty Name="SupporterId" ColumnName="SupporterId" />
+          <ScalarProperty Name="SupporterName" ColumnName="SupporterName" />
+          <ScalarProperty Name="SupporterImage" ColumnName="SupporterImage" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobile" ColumnName="ContactMobile" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+          <ScalarProperty Name="ABN" ColumnName="ABN" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSupporterList" FunctionName="TripleTwoModel.Store.GetSupporterList" />
+    <FunctionImportMapping FunctionImportName="InsertCustomerFeedBack" FunctionName="TripleTwoModel.Store.InsertCustomerFeedBack">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.InsertCustomerFeedBack_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertCustomerSupport" FunctionName="TripleTwoModel.Store.InsertCustomerSupport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.InsertCustomerSupport_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertEventEnquiry" FunctionName="TripleTwoModel.Store.InsertEventEnquiry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.InsertEventEnquiry_Result">
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RegisterCustomer" FunctionName="TripleTwoModel.Store.RegisterCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.RegisterCustomer_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RemoveProductCart" FunctionName="TripleTwoModel.Store.RemoveProductCart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.RemoveProductCart_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SetCustomerMood" FunctionName="TripleTwoModel.Store.SetCustomerMood">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.SetCustomerMood_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="TripleTwoModel.Store.UpdateCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.UpdateCustomer_Result">
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCustomerProfileSettings" FunctionName="TripleTwoModel.Store.UpdateCustomerProfileSettings">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.UpdateCustomerProfileSettings_Result">
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetPaggingData" FunctionName="TripleTwoModel.Store.USP_GetPaggingData" />
+    <FunctionImportMapping FunctionImportName="VerifyCustomerMobile" FunctionName="TripleTwoModel.Store.VerifyCustomerMobile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TripleTwoModel.VerifyCustomerMobile_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

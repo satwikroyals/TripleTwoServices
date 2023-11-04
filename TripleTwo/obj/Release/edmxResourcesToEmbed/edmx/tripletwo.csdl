@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TripleTwoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="Split_Result">
+    <Property Name="items" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Name="BusinessId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessTypeId" Type="Int32" />
+    <Property Name="BusinessLogo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="OtherInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ABN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSiteUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BusinessType">
+    <Key>
+      <PropertyRef Name="BusinessTypeId" />
+    </Key>
+    <Property Name="BusinessTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessType1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CartProduct">
+    <Key>
+      <PropertyRef Name="CartProductID" />
+    </Key>
+    <Property Name="CartProductID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CartID" Type="Int64" />
+    <Property Name="ProductID" Type="Int64" />
+    <Property Name="CustomerID" Type="Int64" />
+    <Property Name="Qty" Type="Int64" />
+    <Property Name="ProductAddedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProductModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProductPrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="CommunicationType">
+    <Key>
+      <PropertyRef Name="CommunicationTypeId" />
+    </Key>
+    <Property Name="CommunicationTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommunicationType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerDevice">
+    <Key>
+      <PropertyRef Name="CAppDeviceId" />
+    </Key>
+    <Property Name="CAppDeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DeviceType" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerFeedBack">
+    <Key>
+      <PropertyRef Name="FeedBackId" />
+    </Key>
+    <Property Name="FeedBackId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerFriend">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" Nullable="false" />
+    <Property Name="FriendCustomerId" Type="Int64" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerMessageReply">
+    <Key>
+      <PropertyRef Name="MessageReplyId" />
+    </Key>
+    <Property Name="MessageReplyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MessageId" Type="Int64" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="ReplyMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReplyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerMessage">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MessageImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PostedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerMood">
+    <Key>
+      <PropertyRef Name="CustomerMoodId" />
+    </Key>
+    <Property Name="CustomerMoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="MoodId" Type="Int32" />
+    <Property Name="AddedDate" Type="DateTime" Precision="3" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Location" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerNominee">
+    <Key>
+      <PropertyRef Name="CustomerNomineeId" />
+    </Key>
+    <Property Name="CustomerNomineeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="NomineeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NomineeMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsProfessional" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="OrganisationTypeId" Type="Int32" />
+    <Property Name="OrganisationGroupID" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BirthMonth" Type="Int32" />
+    <Property Name="BirthYear" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Pin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RefMemberId" Type="Int32" />
+    <Property Name="IsEmailVerified" Type="Int32" />
+    <Property Name="AgeGroupId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ShowMood" Type="Boolean" />
+    <Property Name="ShowProfileToAll" Type="Boolean" />
+    <Property Name="ShowProfileToFriends" Type="Boolean" />
+    <Property Name="DoNotShowProfile" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EventMedia">
+    <Key>
+      <PropertyRef Name="EventMediaId" />
+    </Key>
+    <Property Name="EventMediaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int32" />
+    <Property Name="MediaType" Type="Int32" />
+    <Property Name="Media" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrganisationTypeId" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Video" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EventsEnquiry">
+    <Key>
+      <PropertyRef Name="EnquiryId" />
+    </Key>
+    <Property Name="EnquiryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int32" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnquiryDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Mood">
+    <Key>
+      <PropertyRef Name="MoodId" />
+    </Key>
+    <Property Name="MoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IconText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrganisationGroup">
+    <Key>
+      <PropertyRef Name="OrganisationGroupID" />
+    </Key>
+    <Property Name="OrganisationGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrganisationTypeID" Type="Int32" />
+    <Property Name="GroupTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="OrganisationType">
+    <Key>
+      <PropertyRef Name="OrganisationTypeId" />
+    </Key>
+    <Property Name="OrganisationTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrgName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="PartnerId" />
+    </Key>
+    <Property Name="PartnerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrgId" Type="Int64" />
+    <Property Name="PartnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="StateId" Type="Int64" />
+    <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PartnerTypeId" Type="Int32" />
+    <Property Name="LiveStreaming" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Mission" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductCart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int64" Nullable="false" />
+    <Property Name="TotalProducts" Type="Int64" Nullable="false" />
+    <Property Name="TotalCartQty" Type="Int64" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="ProductImageId" />
+    </Key>
+    <Property Name="ProductImageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NormalPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="OfferPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ProductInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Conditions" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="SponsorId" />
+    </Key>
+    <Property Name="SponsorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SponsorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SponsorImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="OtherInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ABN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSiteUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="SupportId" />
+    </Key>
+    <Property Name="SupportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SupportEmergency">
+    <Key>
+      <PropertyRef Name="EmergencyId" />
+    </Key>
+    <Property Name="EmergencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmergencyNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Supporter">
+    <Key>
+      <PropertyRef Name="SupporterId" />
+    </Key>
+    <Property Name="SupporterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupporterName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupporterImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="OtherInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ABN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSiteUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="TripleTwoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Businesses" EntityType="Self.Business" />
+    <EntitySet Name="BusinessTypes" EntityType="Self.BusinessType" />
+    <EntitySet Name="CartProducts" EntityType="Self.CartProduct" />
+    <EntitySet Name="CommunicationTypes" EntityType="Self.CommunicationType" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="CustomerDevices" EntityType="Self.CustomerDevice" />
+    <EntitySet Name="CustomerFeedBacks" EntityType="Self.CustomerFeedBack" />
+    <EntitySet Name="CustomerFriends" EntityType="Self.CustomerFriend" />
+    <EntitySet Name="CustomerMessageReplies" EntityType="Self.CustomerMessageReply" />
+    <EntitySet Name="CustomerMessages" EntityType="Self.CustomerMessage" />
+    <EntitySet Name="CustomerMoods" EntityType="Self.CustomerMood" />
+    <EntitySet Name="CustomerNominees" EntityType="Self.CustomerNominee" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="EventMedias" EntityType="Self.EventMedia" />
+    <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="EventsEnquiries" EntityType="Self.EventsEnquiry" />
+    <EntitySet Name="Moods" EntityType="Self.Mood" />
+    <EntitySet Name="OrganisationGroups" EntityType="Self.OrganisationGroup" />
+    <EntitySet Name="OrganisationTypes" EntityType="Self.OrganisationType" />
+    <EntitySet Name="Partners" EntityType="Self.Partner" />
+    <EntitySet Name="ProductCarts" EntityType="Self.ProductCart" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Sponsors" EntityType="Self.Sponsor" />
+    <EntitySet Name="Supports" EntityType="Self.Support" />
+    <EntitySet Name="SupportEmergencies" EntityType="Self.SupportEmergency" />
+    <EntitySet Name="Supporters" EntityType="Self.Supporter" />
+    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(TripleTwoModel.Split_Result)">
+      <Parameter Name="String" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddBusiness" ReturnType="Collection(TripleTwoModel.AddBusiness_Result)">
+      <Parameter Name="BusinessId" Mode="In" Type="Int64" />
+      <Parameter Name="BusinessName" Mode="In" Type="String" />
+      <Parameter Name="BusinessTypeId" Mode="In" Type="Int64" />
+      <Parameter Name="BusinessLogo" Mode="In" Type="String" />
+      <Parameter Name="ContactFirstName" Mode="In" Type="String" />
+      <Parameter Name="ContactLastName" Mode="In" Type="String" />
+      <Parameter Name="ContactPhone" Mode="In" Type="String" />
+      <Parameter Name="ContactMobile" Mode="In" Type="String" />
+      <Parameter Name="ContactEmail" Mode="In" Type="String" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="OtherInfo" Mode="In" Type="String" />
+      <Parameter Name="ABN" Mode="In" Type="String" />
+      <Parameter Name="WebSiteUrl" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddCustomerNominees" ReturnType="Collection(TripleTwoModel.AddCustomerNominees_Result)">
+      <Parameter Name="NomineeName" Mode="In" Type="String" />
+      <Parameter Name="NomineeMobile" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddEvent" ReturnType="Collection(TripleTwoModel.AddEvent_Result)">
+      <Parameter Name="EventId" Mode="In" Type="Int64" />
+      <Parameter Name="OrganisationTypeId" Mode="In" Type="Int64" />
+      <Parameter Name="PartnerId" Mode="In" Type="Int64" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ContactPerson" Mode="In" Type="String" />
+      <Parameter Name="ContactPhone" Mode="In" Type="String" />
+      <Parameter Name="ContactEmail" Mode="In" Type="String" />
+      <Parameter Name="EventTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Postcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddEventMedia">
+      <Parameter Name="EventId" Mode="In" Type="Int32" />
+      <Parameter Name="MediaType" Mode="In" Type="Int32" />
+      <Parameter Name="Media" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddRemoveCartProducts" ReturnType="Collection(TripleTwoModel.AddRemoveCartProducts_Result)">
+      <Parameter Name="CartProductID" Mode="In" Type="Int64" />
+      <Parameter Name="CartID" Mode="In" Type="Int64" />
+      <Parameter Name="ProductID" Mode="In" Type="Int64" />
+      <Parameter Name="CustomerID" Mode="In" Type="Int64" />
+      <Parameter Name="Qty" Mode="In" Type="Int32" />
+      <Parameter Name="Action" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddRemoveCustomerFriend" ReturnType="Collection(TripleTwoModel.AddRemoveCustomerFriend_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="FriendCustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="Action" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddUpdateCustomer" ReturnType="Collection(TripleTwoModel.AddUpdateCustomer_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Mobile" Mode="In" Type="String" />
+      <Parameter Name="Pin" Mode="In" Type="String" />
+      <Parameter Name="PostCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddUpdateCustomerProSettings">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="ShowMood" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToAll" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToFriends" Mode="In" Type="Boolean" />
+      <Parameter Name="DoNotShowProfile" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AdminGetCustomerMoods">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Searchstr" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="AdminGetCustomerNominees">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Searchstr" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="AdminGetEventEnquiries">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Searchstr" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="String" />
+      <Parameter Name="EnquiryId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="CheckPartnerLogin" ReturnType="Collection(TripleTwoModel.CheckPartnerLogin_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CreateOrderByCart">
+      <Parameter Name="CartId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerLogin" ReturnType="Collection(TripleTwoModel.CustomerLogin_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Pin" Mode="In" Type="String" />
+      <Parameter Name="DeviceId" Mode="In" Type="String" />
+      <Parameter Name="App" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCustomers" ReturnType="Collection(TripleTwoModel.GetAllCustomers_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCustomersForFriends" ReturnType="Collection(TripleTwoModel.GetAllCustomersForFriends_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAppEventsList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="str" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBusinessDetailsById" ReturnType="Collection(TripleTwoModel.GetBusinessDetailsById_Result)">
+      <Parameter Name="BusinessId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetBusinessList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="str" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="BusinessId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetCountries" ReturnType="Collection(TripleTwoModel.GetCountries_Result)">
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerDetails" ReturnType="Collection(TripleTwoModel.GetCustomerDetails_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerFriends">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="SearchName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerMood" ReturnType="Collection(TripleTwoModel.GetCustomerMood_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerNominees" ReturnType="Collection(TripleTwoModel.GetCustomerNominees_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerProductCart" ReturnType="Collection(TripleTwoModel.GetCustomerProductCart_Result)">
+      <Parameter Name="CustomerID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerProfileSettings">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="ShowMood" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToAll" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToFriends" Mode="In" Type="Boolean" />
+      <Parameter Name="DoNotShowProfile" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomersList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="SearchMemberstr" Mode="In" Type="String" />
+      <Parameter Name="SearchEmailstr" Mode="In" Type="String" />
+      <Parameter Name="SearchMobilestr" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetEventDetails" ReturnType="Collection(TripleTwoModel.GetEventDetails_Result)">
+      <Parameter Name="EventId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetEventMediaById" ReturnType="Collection(TripleTwoModel.GetEventMediaById_Result)">
+      <Parameter Name="EventId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetEvents">
+      <Parameter Name="EventID" Mode="In" Type="Int64" />
+      <Parameter Name="Searchstr" Mode="In" Type="String" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEventsList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="SearchMemberstr" Mode="In" Type="String" />
+      <Parameter Name="SearchEmailstr" Mode="In" Type="String" />
+      <Parameter Name="SearchMobilestr" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrganisationGroups" ReturnType="Collection(TripleTwoModel.GetOrganisationGroups_Result)">
+      <Parameter Name="OrganisationTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrganisationTypes" ReturnType="Collection(TripleTwoModel.GetOrganisationTypes_Result)">
+      <Parameter Name="OrganisationTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaggingData">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Query" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductDetailById" ReturnType="Collection(TripleTwoModel.GetProductDetailById_Result)">
+      <Parameter Name="productId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductImagesById" ReturnType="Collection(TripleTwoModel.GetProductImagesById_Result)">
+      <Parameter Name="productId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetProducts">
+      <Parameter Name="SearchStr" Mode="In" Type="String" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int64" />
+      <Parameter Name="PageSize" Mode="In" Type="Int64" />
+      <Parameter Name="ProductId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetSponsorDetailsById" ReturnType="Collection(TripleTwoModel.GetSponsorDetailsById_Result)">
+      <Parameter Name="SponsorId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetSponsorList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="str" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="SponsorId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetSupportEmergency" ReturnType="Collection(TripleTwoModel.GetSupportEmergency_Result)">
+      <Parameter Name="EmergencyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSupporterDetailsById" ReturnType="Collection(TripleTwoModel.GetSupporterDetailsById_Result)">
+      <Parameter Name="SupporterId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetSupporterList">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="str" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="Int32" />
+      <Parameter Name="SupporterId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="InsertCustomerFeedBack" ReturnType="Collection(TripleTwoModel.InsertCustomerFeedBack_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="Subject" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertCustomerSupport" ReturnType="Collection(TripleTwoModel.InsertCustomerSupport_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="Subject" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertEventEnquiry" ReturnType="Collection(TripleTwoModel.InsertEventEnquiry_Result)">
+      <Parameter Name="EventId" Mode="In" Type="Int64" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RegisterCustomer" ReturnType="Collection(TripleTwoModel.RegisterCustomer_Result)">
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="OrganisationTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="OrganisationGroupId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Mobile" Mode="In" Type="String" />
+      <Parameter Name="Pin" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RemoveProductCart" ReturnType="Collection(TripleTwoModel.RemoveProductCart_Result)">
+      <Parameter Name="CartID" Mode="In" Type="Int64" />
+      <Parameter Name="OutletID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SetCustomerMood" ReturnType="Collection(TripleTwoModel.SetCustomerMood_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="MoodId" Mode="In" Type="Int32" />
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCustomer" ReturnType="Collection(TripleTwoModel.UpdateCustomer_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="OrganisationTypeId" Mode="In" Type="Int64" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="String" />
+      <Parameter Name="BirthMonth" Mode="In" Type="Int32" />
+      <Parameter Name="BirthYear" Mode="In" Type="Int32" />
+      <Parameter Name="Mobile" Mode="In" Type="String" />
+      <Parameter Name="Pin" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="ProfilePic" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="PostCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCustomerProfileSettings" ReturnType="Collection(TripleTwoModel.UpdateCustomerProfileSettings_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int64" />
+      <Parameter Name="ShowMood" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToAll" Mode="In" Type="Boolean" />
+      <Parameter Name="ShowProfileToFriends" Mode="In" Type="Boolean" />
+      <Parameter Name="DoNotShowProfile" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetPaggingData">
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Query" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VerifyCustomerMobile" ReturnType="Collection(TripleTwoModel.VerifyCustomerMobile_Result)">
+      <Parameter Name="Mobile" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AddBusiness_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AddCustomerNominees_Result">
+    <Property Type="Int64" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AddEvent_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AddRemoveCartProducts_Result">
+    <Property Type="Int64" Name="ResultID" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AddRemoveCustomerFriend_Result">
+    <Property Type="Int32" Name="ResultID" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="AddUpdateCustomer_Result">
+    <Property Type="Int64" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="CheckPartnerLogin_Result">
+    <Property Type="Int64" Name="PartnerId" Nullable="false" />
+    <Property Type="Int64" Name="OrgId" Nullable="true" />
+    <Property Type="String" Name="PartnerName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Logo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PartnerTypeId" Nullable="true" />
+    <Property Type="String" Name="EmailId" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Website" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LiveStreaming" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="CustomerLogin_Result">
+    <Property Type="Int32" Name="Customerid" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ProfilePic" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="false" />
+    <Property Type="String" Name="OrgName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ResultID" Nullable="false" />
+    <Property Type="String" Name="Column1" Nullable="false" MaxLength="17" />
+  </ComplexType>
+  <ComplexType Name="GetAllCustomers_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationGroupID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="BirthMonth" Nullable="true" />
+    <Property Type="Int32" Name="BirthYear" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Pin" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ProfilePic" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="RefMemberId" Nullable="true" />
+    <Property Type="Int32" Name="IsEmailVerified" Nullable="true" />
+    <Property Type="Int32" Name="AgeGroupId" Nullable="true" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="ShowMood" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToAll" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToFriends" Nullable="true" />
+    <Property Type="Boolean" Name="DoNotShowProfile" Nullable="true" />
+    <Property Type="Int32" Name="NomineeCount" Nullable="true" />
+    <Property Type="Int32" Name="MoodId" Nullable="true" />
+    <Property Type="String" Name="OrgGroupName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="OrgName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllCustomersForFriends_Result">
+    <Property Type="Int32" Name="IsFriend" Nullable="false" />
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationGroupID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="BirthMonth" Nullable="true" />
+    <Property Type="Int32" Name="BirthYear" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Pin" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ProfilePic" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="RefMemberId" Nullable="true" />
+    <Property Type="Int32" Name="IsEmailVerified" Nullable="true" />
+    <Property Type="Int32" Name="AgeGroupId" Nullable="true" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="ShowMood" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToAll" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToFriends" Nullable="true" />
+    <Property Type="Boolean" Name="DoNotShowProfile" Nullable="true" />
+    <Property Type="Int32" Name="CustomerId1" Nullable="false" />
+    <Property Type="String" Name="Email1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="fname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="lname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CustomerImage" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MoodId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBusinessDetailsById_Result">
+    <Property Type="Int32" Name="BusinessId" Nullable="false" />
+    <Property Type="String" Name="BusinessName" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="BusinessTypeId" Nullable="true" />
+    <Property Type="String" Name="BusinessLogo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactFirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactLastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactPhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactEmail" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="OtherInfo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ABN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WebSiteUrl" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCountries_Result">
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerDetails_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationGroupID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="BirthMonth" Nullable="true" />
+    <Property Type="Int32" Name="BirthYear" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Pin" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ProfilePic" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="RefMemberId" Nullable="true" />
+    <Property Type="Int32" Name="IsEmailVerified" Nullable="true" />
+    <Property Type="Int32" Name="AgeGroupId" Nullable="true" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="ShowMood" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToAll" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToFriends" Nullable="true" />
+    <Property Type="Boolean" Name="DoNotShowProfile" Nullable="true" />
+    <Property Type="String" Name="FirstName1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePic1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerMood_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="true" />
+    <Property Type="Int32" Name="OrganisationGroupID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="BirthMonth" Nullable="true" />
+    <Property Type="Int32" Name="BirthYear" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Pin" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ProfilePic" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="RefMemberId" Nullable="true" />
+    <Property Type="Int32" Name="IsEmailVerified" Nullable="true" />
+    <Property Type="Int32" Name="AgeGroupId" Nullable="true" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="ShowMood" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToAll" Nullable="true" />
+    <Property Type="Boolean" Name="ShowProfileToFriends" Nullable="true" />
+    <Property Type="Boolean" Name="DoNotShowProfile" Nullable="true" />
+    <Property Type="Int32" Name="moodid" Nullable="true" />
+    <Property Type="Decimal" Name="Latitude1" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="Longitude1" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="2000" />
+    <Property Type="Int32" Name="customerid1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerNominees_Result">
+    <Property Type="Int32" Name="CustomerNomineeId" Nullable="false" />
+    <Property Type="Int32" Name="CustomerId" Nullable="true" />
+    <Property Type="String" Name="NomineeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NomineeMobile" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsProfessional" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerProductCart_Result">
+    <Property Type="Int64" Name="CartId" Nullable="false" />
+    <Property Type="Int64" Name="CustomerID" Nullable="false" />
+    <Property Type="Int64" Name="TotalProducts" Nullable="false" />
+    <Property Type="Int64" Name="TotalCartQty" Nullable="false" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="GetEventDetails_Result">
+    <Property Type="Int64" Name="EventId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Video" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactPerson" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactEmail" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetEventMediaById_Result">
+    <Property Type="Int64" Name="EventMediaId" Nullable="false" />
+    <Property Type="Int32" Name="EventId" Nullable="true" />
+    <Property Type="Int32" Name="MediaType" Nullable="true" />
+    <Property Type="String" Name="Media" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOrganisationGroups_Result">
+    <Property Type="Int32" Name="OrganisationGroupID" Nullable="false" />
+    <Property Type="Int32" Name="OrganisationTypeID" Nullable="true" />
+    <Property Type="String" Name="GroupTitle" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOrganisationTypes_Result">
+    <Property Type="Int32" Name="OrganisationTypeId" Nullable="false" />
+    <Property Type="String" Name="OrgName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetProductDetailById_Result">
+    <Property Type="Int64" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="ProductTitle" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="NormalPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="OfferPrice" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ProductInfo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Conditions" Nullable="true" MaxLength="1000" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetProductImagesById_Result">
+    <Property Type="Int64" Name="ProductImageId" Nullable="false" />
+    <Property Type="Int32" Name="ProductId" Nullable="true" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetSponsorDetailsById_Result">
+    <Property Type="Int32" Name="SponsorId" Nullable="false" />
+    <Property Type="String" Name="SponsorName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="SponsorImage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactFirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactLastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactPhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactEmail" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="OtherInfo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ABN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WebSiteUrl" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetSupportEmergency_Result">
+    <Property Type="Int32" Name="EmergencyId" Nullable="false" />
+    <Property Type="String" Name="EmergencyNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EmergencyEmail" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetSupporterDetailsById_Result">
+    <Property Type="Int32" Name="SupporterId" Nullable="false" />
+    <Property Type="String" Name="SupporterName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="SupporterImage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactFirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactLastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactPhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ContactEmail" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="OtherInfo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ABN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WebSiteUrl" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="InsertCustomerFeedBack_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="InsertCustomerSupport_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="InsertEventEnquiry_Result">
+    <Property Type="Int32" Name="ResultID" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="RegisterCustomer_Result">
+    <Property Type="Int64" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="RemoveProductCart_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="false" />
+    <Property Type="String" Name="ResultMessage" Nullable="false" MaxLength="26" />
+  </ComplexType>
+  <ComplexType Name="SetCustomerMood_Result">
+    <Property Type="Int64" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="UpdateCustomer_Result">
+    <Property Type="Int32" Name="StatusCode" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="UpdateCustomerProfileSettings_Result">
+    <Property Type="Int64" Name="ResultID" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="VerifyCustomerMobile_Result">
+    <Property Type="Int64" Name="ResultId" Nullable="true" />
+    <Property Type="String" Name="ResultMessage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>
